@@ -1,0 +1,14 @@
+
+.content {
+    grid-area: c;
+    background-color: bisque;
+}
+.main img{
+    height: 300px;
+    width: 1500px;
+}
+.avatar img{
+    height: 40px;
+    width: 40px;
+    border-radius:30px
+}

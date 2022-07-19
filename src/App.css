@@ -11,28 +11,4 @@
     text-align: center;
 }
 
-.header {
-    grid-area: h;
-  background-color: black;
 
-}
-.header img{
-  width: 40px;
-}
-.nav {
-    grid-area: n;
-  background-color: royalblue;
-}
-
-.content {
-    grid-area: c;
-    background-color: bisque;
-}
-.main img{
-    height: 300px;
-    width: 1500px;
-}
-.avatar img{
-    height: 80px;
-    width: 80px;
-}
