@@ -1,0 +1,11 @@
+.Dialogs {
+    display: grid;
+    grid-template-columns: 10% 10%;
+    background-color: #99738E;
+    min-height: 100vh;
+    margin: 5px;
+}
+.Dialogs a{
+    color: #242582;
+    text-decoration: none;
+}

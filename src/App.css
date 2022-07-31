@@ -3,12 +3,14 @@
     grid-template-areas:
 "h h"
 "n c";
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 120px 1fr;
   grid-template-columns: 2fr 10fr;
  /* grid-gap: 10px;*/
     width: 1800px;
     margin: auto;
     text-align: center;
 }
-
+.content{
+    grid-area: c;
+}
 

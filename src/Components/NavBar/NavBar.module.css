@@ -1,5 +1,15 @@
 
 .nav {
     grid-area: n;
-    background-color: royalblue;
+    background-color: #242582;
+    padding: 10px;
+    min-height: 90vh;
+    margin: 5px;
+}
+.nav a{
+    color: #F64C72;
+    text-decoration: none;
+}
+.nav a.active{
+    color: aqua;
 }

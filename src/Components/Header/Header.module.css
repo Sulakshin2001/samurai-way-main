@@ -1,8 +1,13 @@
 .header {
     grid-area: h;
-    background-color: black;
+    background-color: #553D67;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 90px;
+    margin: 5px;
 
 }
 .header img{
-    width: 40px;
+    width: 130px;
+    border-radius: 40px;
 }

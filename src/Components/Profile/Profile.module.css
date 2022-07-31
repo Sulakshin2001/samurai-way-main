@@ -1,14 +1,30 @@
 
 .content {
-    grid-area: c;
-    background-color: bisque;
+    background-color: #99738E;
+    text-align: left;
+    min-height: 100vh;
+    margin: 5px;
 }
 .main img{
     height: 300px;
     width: 1500px;
+    margin: 10px;
+    border-radius: 30px;
 }
 .avatar img{
     height: 40px;
     width: 40px;
     border-radius:30px
+}
+.delete{
+    background-color:#242582;
+}
+.posts{
+    display: flex;
+    justify-content: center;
+
+}
+.post{
+    display: flex;
+    flex-direction: column;
 }

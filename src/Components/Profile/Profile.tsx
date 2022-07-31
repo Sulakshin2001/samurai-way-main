@@ -7,10 +7,12 @@ export const Profile = () => {
         <div className={s.content}>
             <div className={s.main}>
                 <img
-                    src='https://avatars.mds.yandex.net/i?id=10d5e358861b219ac08bc8dcc49583a5-5711615-images-thumbs&n=13'/>
+                    src='https://getsmartdigital.com/wp-content/uploads/2015/09/social-background.jpg'/>
             </div>
+            <div className={s.posts}>
 
             <Myposts/>
+            </div>
         </div>
 
 
