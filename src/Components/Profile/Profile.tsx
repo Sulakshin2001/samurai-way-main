@@ -1,8 +1,15 @@
 import React from "react";
 import s from './Profile.module.css'
 import {Myposts} from "./MyPosts/Myposts";
-
-export const Profile = () => {
+type profileType={
+    dispatch:(action:any)=>void
+    PostName:Array<obj2>
+}
+type obj2={
+    id:string,
+    post:string
+}
+export const Profile = (props:profileType) => {
     return (
         <div className={s.content}>
             <div className={s.main}>
@@ -11,7 +18,7 @@ export const Profile = () => {
             </div>
             <div className={s.posts}>
 
-            <Myposts/>
+            <Myposts dispatch={props.dispatch} PostName={props.PostName}/>
             </div>
         </div>
 

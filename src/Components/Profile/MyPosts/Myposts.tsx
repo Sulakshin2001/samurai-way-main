@@ -3,39 +3,44 @@ import React, {ChangeEvent, useEffect, useState} from "react";
 import {Post} from "./Post/Post";
 import {v1} from "uuid";
 import {Button} from "@mui/material";
-type PostsArr=Array<obj>
-type obj={
-    message:string,
-    id:string
+import {AddTaskAC} from "../../../redux/state";
+
+type PostsArr = Array<obj>
+type obj = {
+    message: string,
+    id: string
 }
-export const Myposts = () => {
-  const [message,setmessage]=useState('')
-    const [MessageArray,SetMessageArray]=useState<PostsArr>([])
-  const Messageset=(e:ChangeEvent<HTMLTextAreaElement>)=>{
-    setmessage(e.currentTarget.value)
+type myPostsType = {
+    dispatch: (action: any) => void
+    PostName: Array<obj2>
+}
+type obj2 = {
+    id: string,
+    post: string
 
-  }
-  const AddPost=()=>{
-      let obj={message:message,id:v1()}
-      SetMessageArray([obj,...MessageArray])
-      setmessage('')
+}
+export const Myposts = (props: myPostsType) => {
+    const [message, setmessage] = useState('')
+    const Messageset = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setmessage(e.currentTarget.value)
 
-  }
-  const DeletePost=(id:string)=>{
-      SetMessageArray([...MessageArray.filter(el=>el.id!=id)])
-  }
+    }
+    const addPost = (message: string) => {
+        return props.dispatch(AddTaskAC(message))
+        setmessage('')
+    }
 
     return (
         <div>
 
             <div>Myposts</div>
             <textarea value={message} onChange={Messageset} className={s.area}/>
-           {/* <button onClick={AddPost} disabled={message==='' ? true : false}>addpost</button>*/}
-            <Button variant="contained" onClick={AddPost} disabled={message==='' ? true : false}>
+            {/* <button onClick={AddPost} disabled={message==='' ? true : false}>addpost</button>*/}
+            <Button variant="contained" onClick={() => addPost(message)} disabled={message === '' ? true : false}>
                 Send
             </Button>
             <div>New Post</div>
-            <Post MessageArray={MessageArray} DeletePost={DeletePost}/>
+            <Post MessageArray={props.PostName}/>
         </div>
     )
 }

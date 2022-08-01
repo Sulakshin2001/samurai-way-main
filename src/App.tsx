@@ -5,26 +5,52 @@ import {NavBar} from "./Components/NavBar/NavBar";
 import {Profile} from "./Components/Profile/Profile";
 import {Dialogs} from "./Components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
-type AppProps={
-    ArrayName:Array<obj>
-    ArrayMessage:Array<obj>
+
+type AppProps = {
+    store: {
+        _state: RootType,
+        getState: () => RootType,
+        dispatch:(action:any)=>void
+    }
+
 }
-type obj={
-    id:string,
-    name:string
+
+type RootType = {
+    postPage: PostPageType,
+    namePage: namePageType,
+    messagepage: messagepageType,
 }
-function App(props:AppProps) {
+type PostPageType = {
+    post: Array<obj2>
+}
+type namePageType = {
+    name: Array<obj>
+}
+type obj = {
+    id: string,
+    name: string
+}
+type obj2 = {
+    id: string,
+    post: string
+}
+type messagepageType = {
+    messages: Array<obj>
+}
+
+function App(props: AppProps) {
 
     return (
         <BrowserRouter>
-        <div className="App">
-            <Header/>
-            <NavBar/>
-            <div className='content'>
-                <Route path='/dialogs' render={()=><Dialogs ArrayName={props.ArrayName} ArrayMessage={props.ArrayMessage}/>}/>
-                <Route path='/profile' component={Profile}/>
+            <div className="App">
+                <Header/>
+                <NavBar/>
+                <div className='content'>
+                    <Route path='/dialogs'
+                           render={() => <Dialogs ArrayName={props.store._state.namePage.name} ArrayMessage={props.store._state.messagepage.messages}/>}/>
+                    <Route path='/profile' render={() => <Profile dispatch={props.store.dispatch.bind(props.store)} PostName={props.store._state.postPage.post}/>}/>
+                </div>
             </div>
-        </div>
         </BrowserRouter>
     );
 }
